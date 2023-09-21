@@ -113,7 +113,7 @@ class ViewController: UIViewController {
         
         
         
-        let image = UIImageView(frame: CGRect(x: ImageWidth.randomElement()!, y: ImageHeight.randomElement()!, width: 90, height: 130))
+        let image = UIImageView(frame: CGRect(x: ImageWidth.randomElement()!, y: ImageHeight.randomElement()!, width: 100, height: 130))
         image.image = UIImage(named: "mcqueen")
         view.addSubview(image)
          
