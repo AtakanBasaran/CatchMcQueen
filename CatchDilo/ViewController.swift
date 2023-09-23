@@ -29,15 +29,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         ButtonPlay.isHidden = false
         let SavedScore = UserDefaults.standard.object(forKey: "Highscore")
         if let ScoreSave = SavedScore as? Int {
             HighscoreLabel.text = "Highscore: \(ScoreSave)"
         }
         
+    
         counter = 10 //10sec play time
-        TimeLabel.text = "Time: \(counter) s"
+        TimeLabel.text = "Time: \(counter)s"
         ScoreLabel.text = "Score: \(score)"
     }
     
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     
     @objc func LeftTime() {
         
-        TimeLabel.text = "Time: \(counter) s"
+        TimeLabel.text = "Time: \(counter)s"
         counter -= 1
         
         if counter == -1 {
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         let YesButton = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { UIAlertAction in
             self.score = 0
             self.counter = 10
-            self.TimeLabel.text = "Time: \(self.counter) s" //For instant changes in the labels after pressing yes button at the end of the game
+            self.TimeLabel.text = "Time: \(self.counter)s" //For instant changes in the labels after pressing yes button at the end of the game
             self.ScoreLabel.text = "Score: \(self.score)"
             self.ButtonPlay.isHidden = true
             self.SetTimer()
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         
         alert.addAction(NoButton)
         alert.addAction(YesButton)
-        present(alert, animated: true)
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -109,9 +109,7 @@ class ViewController: UIViewController {
         ImageWidth = [(width * 0.09), (width * 0.39), (width * 0.69)]
         ImageHeight = [(height * 0.25), (height * 0.43), (height * 0.61)]
          
-        //Numbers were calculated roghly according to the Main View and left eqaul spacing among them
-        
-        
+        //Numbers were calculated roughly according to the Main View and left eqaul spacing among them
         
         let image = UIImageView(frame: CGRect(x: ImageWidth.randomElement()!, y: ImageHeight.randomElement()!, width: 100, height: 130))
         image.image = UIImage(named: "mcqueen")
@@ -138,7 +136,7 @@ class ViewController: UIViewController {
     @IBAction func PlayButton(_ sender: Any) { //To play in the first opening or after choosing No button at the end of the game
         self.score = 0
         self.counter = 10
-        self.TimeLabel.text = "Time: \(self.counter) s"
+        self.TimeLabel.text = "Time: \(self.counter)s"
         self.ScoreLabel.text = "Score: \(self.score)"
         SetTimer()
         SetTimer2()
